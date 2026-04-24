@@ -37,3 +37,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
 }
+
+tasks.register<Jar>("sourcesJar") {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
