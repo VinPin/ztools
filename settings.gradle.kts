@@ -22,4 +22,4 @@ dependencyResolutionManagement { // 依赖管理
 
 rootProject.name = "ztools"
 include(":app")
- 
+include(":ztools")
