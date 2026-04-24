@@ -43,4 +43,5 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
+    implementation(libs.kotlinx.coroutines.android)
 }
