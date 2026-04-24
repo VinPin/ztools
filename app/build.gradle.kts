@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.vinpin.ztools.sample"
         minSdk = 21
-        targetSdk = 31
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
     }
@@ -35,11 +35,12 @@ android {
     }
 
     buildFeatures {
-        // compose = true
+        viewBinding = true
     }
 }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.android.material)
 }
