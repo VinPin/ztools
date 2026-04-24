@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vinpin.ztools.sample"
+    namespace = "com.vinpin.ztools.sample" // 命名空间（替代了旧版 AndroidManifest 里的 package）
     compileSdk = 31
 
     defaultConfig {
@@ -35,7 +35,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        viewBinding = true // 开启视图绑定（替代 findViewById，官方推荐）
     }
 }
 
