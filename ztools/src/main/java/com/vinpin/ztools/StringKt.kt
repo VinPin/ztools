@@ -71,6 +71,12 @@ fun String?.toSafeBoolean(defaultValue: Boolean = false): Boolean {
     }
 }
 
+// 转换为HashMap，如果转换失败则返回空HashMap
+fun String?.toSafeHashMap(): HashMap<String, Any> {
+    val json = this?.toJSONObject() ?: return hashMapOf()
+    return json.toSafeHashMap()
+}
+
 // 转换为Uri，如果转换失败则返回null
 fun String?.toSafeUri(printStackTrace: Boolean = true): Uri? {
     if (this.isNullOrEmpty()) return null
