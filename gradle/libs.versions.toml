@@ -9,6 +9,8 @@ appcompat = "1.4.2"
 material = "1.6.1"
 # kotlinx-coroutines-android:1.6.4（2022-6-13发布），不使用高版本是因1.7.0+依赖kotlin-stdlib-jdk8:1.8.20。
 coroutines = "1.6.4"
+# gson
+gson = "2.14.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -20,4 +22,5 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 

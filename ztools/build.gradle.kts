@@ -33,9 +33,10 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.android.material)
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.appcompat)
+    api(libs.android.material)
+    api(libs.gson)
 }
 
 tasks.register<Jar>("sourcesJar") {
