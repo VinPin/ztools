@@ -43,28 +43,11 @@ object ImageUtil {
                 inputStream().use {
                     val buffer = ByteArray(4)
                     it.read(buffer)
-                    bytesToHexString(buffer)
+                    MD5Util.bytesToHexString(buffer)
                 }
             }?.onFailure {
                 it.printStackTrace()
             }?.getOrNull()
-    }
-
-    /**
-     * 将字节数组转换为十六进制字符串
-     *
-     * @param src 字节数组
-     * @return 十六进制字符串
-     */
-    private fun bytesToHexString(src: ByteArray?): String? {
-        if (src == null || src.isEmpty()) return null
-        val builder = StringBuilder()
-        for (byte in src) {
-            val hex = Integer.toHexString(byte.toInt() and 0xFF)
-            if (hex.length == 1) builder.append('0')
-            builder.append(hex)
-        }
-        return builder.toString()
     }
 
     /**
