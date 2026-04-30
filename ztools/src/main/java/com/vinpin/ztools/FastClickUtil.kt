@@ -5,6 +5,9 @@ package com.vinpin.ztools
  */
 object FastClickUtil {
 
+    /**
+     * 上一次点击的时间
+     */
     private var lastFastClickTime: Long = 0L
 
     /**

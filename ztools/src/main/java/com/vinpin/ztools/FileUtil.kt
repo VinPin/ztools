@@ -1,5 +1,6 @@
 package com.vinpin.ztools
 
+import androidx.annotation.WorkerThread
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -49,6 +50,7 @@ object FileUtil {
      * @param newPath 目标文件路径
      * @return true：复制成功，false: 复制失败
      */
+    @WorkerThread
     fun copyFile(oldPath: String, newPath: String): Boolean {
         if (oldPath.isEmpty() || newPath.isEmpty()) return false
         val oldFile = File(oldPath)
