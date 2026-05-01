@@ -23,7 +23,11 @@ object UiThreadUtil {
      * 在UI线程上运行给定的`Runnable`
      */
     fun runOnUiThread(runnable: Runnable) {
-        runOnUiThread(runnable, 0)
+        if (isOnUiThread()) {
+            runnable.run()
+        } else {
+            runOnUiThread(runnable, 0)
+        }
     }
 
     /**
