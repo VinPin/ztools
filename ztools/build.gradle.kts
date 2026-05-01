@@ -36,6 +36,7 @@ dependencies {
     api(libs.androidx.core.ktx)
     api(libs.androidx.appcompat)
     api(libs.android.material)
+    api(libs.kotlinx.coroutines.android)
     api(libs.gson)
 }
 
