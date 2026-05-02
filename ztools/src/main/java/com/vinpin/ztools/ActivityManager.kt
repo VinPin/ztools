@@ -42,8 +42,7 @@ object ActivityManager {
                     application.registerActivityLifecycleCallbacks(object :
                         Application.ActivityLifecycleCallbacks {
                         override fun onActivityCreated(
-                            activity: Activity,
-                            savedInstanceState: Bundle?
+                            activity: Activity, savedInstanceState: Bundle?
                         ) {
                             // Activity创建时自动添加到栈中
                             addActivity(activity)
@@ -54,8 +53,7 @@ object ActivityManager {
                         override fun onActivityPaused(activity: Activity) {}
                         override fun onActivityStopped(activity: Activity) {}
                         override fun onActivitySaveInstanceState(
-                            activity: Activity,
-                            outState: Bundle
+                            activity: Activity, outState: Bundle
                         ) {
                         }
 
@@ -157,6 +155,24 @@ object ActivityManager {
                 if (activity.javaClass == cls) {
                     finishActivity(activity)
                 }
+            }
+        }
+    }
+
+    /**
+     * 关闭栈顶的多个Activity
+     *
+     * @param count 要关闭的Activity数量
+     */
+    fun finishActivityWithCount(count: Int) {
+        val size = size()
+        if (count >= size) {
+            finishAllActivity()
+        } else {
+            var index = count
+            while (index > 0) {
+                finishActivity()
+                index--
             }
         }
     }
