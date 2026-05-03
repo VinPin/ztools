@@ -26,6 +26,8 @@ object Util {
         ActivityManager.init(application)
         // 初始化进程管理器，自动注册进程生命周期监听
         ProcessLifecycleManager.init(application)
+        // 初始化网络状态管理器，自动注册网络状态监听
+        NetworkManager.init(application)
     }
 
     /**
