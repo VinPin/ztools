@@ -24,6 +24,8 @@ object Util {
         this.application = application
         // 初始化Activity管理器，自动注册Activity生命周期监听
         ActivityManager.init(application)
+        // 初始化进程管理器，自动注册进程生命周期监听
+        ProcessLifecycleManager.init(application)
     }
 
     /**

@@ -39,34 +39,36 @@ object ActivityManager {
         if (!isInitialized) {
             synchronized(lock) {
                 if (!isInitialized) {
-                    application.registerActivityLifecycleCallbacks(object :
-                        Application.ActivityLifecycleCallbacks {
-                        override fun onActivityCreated(
-                            activity: Activity, savedInstanceState: Bundle?
-                        ) {
-                            // Activity创建时自动添加到栈中
-                            addActivity(activity)
-                        }
-
-                        override fun onActivityStarted(activity: Activity) {}
-                        override fun onActivityResumed(activity: Activity) {}
-                        override fun onActivityPaused(activity: Activity) {}
-                        override fun onActivityStopped(activity: Activity) {}
-                        override fun onActivitySaveInstanceState(
-                            activity: Activity, outState: Bundle
-                        ) {
-                        }
-
-                        override fun onActivityDestroyed(activity: Activity) {
-                            // Activity销毁时自动从栈中移除
-                            removeActivity(activity)
-                        }
-                    })
-                    // 标记为已初始化
+                    registerActivityLifecycle(application)
                     isInitialized = true
                 }
             }
         }
+    }
+
+    /**
+     * 注册全局Activity生命周期监听
+     */
+    private fun registerActivityLifecycle(application: Application) {
+        application.registerActivityLifecycleCallbacks(object :
+            Application.ActivityLifecycleCallbacks {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+                // Activity创建时自动添加到栈中
+                addActivity(activity)
+            }
+
+            override fun onActivityStarted(activity: Activity) {}
+            override fun onActivityResumed(activity: Activity) {}
+            override fun onActivityPaused(activity: Activity) {}
+            override fun onActivityStopped(activity: Activity) {}
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+            }
+
+            override fun onActivityDestroyed(activity: Activity) {
+                // Activity销毁时自动从栈中移除
+                removeActivity(activity)
+            }
+        })
     }
 
     /**
