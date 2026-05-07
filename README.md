@@ -1,6 +1,5 @@
 # ztools
 
-[![Build Status](https://github.com/vinpin/ztools/actions/workflows/build.yml/badge.svg)](https://github.com/vinpin/ztools/actions/workflows/build.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.vinpin/ztools)](https://search.maven.org/search?q=g:com.vinpin%20AND%20a:ztools)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://developer.android.com/about/dashboards/platform-versions)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.6.21-blue.svg)](https://kotlinlang.org/)
@@ -8,39 +7,49 @@
 
 > Android 开发过程中常用工具类
 
-ztools 是一个轻量级、高性能的 Android Kotlin 工具库，为 Android 开发提供一系列实用的工具类和扩展函数。该库经过精心设计，具有零依赖（仅需 AndroidX 和 Kotlin 标准库）、无反射、无运行时注解处理器的特点，确保最小的 APK 体积增量和最佳性能。
+ztools 是一个轻量级、高性能的 Android Kotlin 工具库，为 Android 开发提供一系列实用的工具类和扩展函数。该库经过精心设计，具有零依赖（仅需
+AndroidX 和 Kotlin 标准库）、无反射、无运行时注解处理器的特点，确保最小的 APK 体积增量和最佳性能。
 
 ## ✨ 特性
 
 ### 📱 Activity 生命周期管理
-- **ActivityManager**: 全局 Activity 管理器，支持 Activity 的添加、移除、获取、遍历、栈操作（如 finish 所有 Activity、finish 到指定 Activity）
+
+- **ActivityManager**: 全局 Activity 管理器，支持 Activity 的添加、移除、获取、遍历、栈操作（如 finish 所有
+  Activity、finish 到指定 Activity）
 - **ProcessLifecycleManager**: 应用进程生命周期监听器，可准确检测应用是否处于前台或后台状态
 
 ### 🌐 网络状态管理
+
 - **NetworkManager**: 网络状态监控器，支持实时监听网络连接状态（WiFi、移动数据）、网络类型（4G、5G、WiFi）以及网络可用性
 
 ### 🖥️ 屏幕与显示工具
+
 - **ScreenUtil**: 屏幕尺寸、密度、状态栏高度、导航栏高度等设备信息获取工具
 - **ImageUtil**: 图片处理工具，支持 Bitmap 缩放、圆角裁剪、模糊处理等
 
 ### 🌙 主题与模式
+
 - **NightModeUtil**: 深色模式（Dark Mode）管理工具，支持系统自动、强制深色、强制浅色三种模式切换
 
 ### ⚡ 性能优化工具
+
 - **WorkQueueUtil**: 串行任务队列，确保任务按顺序执行，避免并发问题
 - **ThrottleUtil** / **FirstLastThrottleUtil**: 防抖和节流工具，有效控制高频事件（如点击、滚动）的触发频率
 - **FastClickUtil**: 快速点击防重复工具，防止用户短时间内多次点击同一控件
 
 ### 🔐 安全与加密
+
 - **MD5Util**: MD5 哈希计算工具，支持字符串和文件的 MD5 计算
 - **UniqueIdUtil**: 设备唯一标识符生成工具，支持多种标识符策略
 
 ### 📦 数据处理
+
 - **JSONKt** / **JSONObjectKt** / **JSONArrayKt**: JSON 处理扩展，提供便捷的 JSON 解析、序列化和操作方法
 - **StringKt**: 字符串处理扩展，包含丰富的字符串操作和验证方法
 - **FileUtil**: 文件操作工具，支持文件读写、复制、删除、路径处理等
 
 ### 🧩 其他实用工具
+
 - **ContextKt**: Context 扩展函数，提供便捷的资源获取、Intent 启动、Toast 显示等方法
 - **UiThreadUtil**: UI 线程工具，简化主线程操作
 - **Util**: 通用工具类，包含各种实用的静态方法
@@ -52,82 +61,12 @@ ztools 是一个轻量级、高性能的 Android Kotlin 工具库，为 Android 
 在 `app/build.gradle.kts` 或 `build.gradle.kts` 中添加以下依赖：
 
 ```kotlin
-// 使用版本目录（推荐）
 dependencies {
-    implementation("com.vinpin:ztools:1.0.0")
+    implementation("com.github.VinPin:1.0.0")
 }
 ```
 
-或者直接使用具体版本：
-
-```kotlin
-dependencies {
-    implementation("com.vinpin:ztools:1.0.0")
-}
-```
-
-> 💡 提示：请将 `1.0.0` 替换为最新的版本号。最新版本可在 [Maven Central](https://search.maven.org/search?q=g:com.vinpin%20AND%20a:ztools) 查看。
-
-### 基本使用示例
-
-#### Activity 管理
-```kotlin
-// 添加当前 Activity 到管理器
-ActivityManager.add(activity)
-
-// 获取所有 Activity
-val activities = ActivityManager.getAll()
-
-// finish 所有 Activity
-ActivityManager.finishAll()
-```
-
-#### 网络状态监听
-```kotlin
-// 监听网络状态变化
-NetworkManager.registerNetworkCallback(this) { networkState ->
-    when (networkState) {
-        NetworkState.CONNECTED -> {
-            // 网络已连接
-        }
-        NetworkState.DISCONNECTED -> {
-            // 网络已断开
-        }
-        NetworkState.CONNECTING -> {
-            // 正在连接
-        }
-    }
-}
-```
-
-#### 屏幕信息获取
-```kotlin
-// 获取屏幕宽度和高度
-val width = ScreenUtil.getScreenWidth(this)
-val height = ScreenUtil.getScreenHeight(this)
-
-// 获取状态栏高度
-val statusBarHeight = ScreenUtil.getStatusBarHeight(this)
-```
-
-#### 深色模式切换
-```kotlin
-// 设置深色模式
-NightModeUtil.setNightMode(this, NightMode.AUTO) // 自动
-NightModeUtil.setNightMode(this, NightMode.NIGHT) // 强制深色
-NightModeUtil.setNightMode(this, NightMode.DAY) // 强制浅色
-```
-
-#### 防抖处理
-```kotlin
-// 防抖点击处理
-button.setOnClickListener {
-    ThrottleUtil.throttle("search_button") {
-        // 执行搜索操作
-        performSearch()
-    }
-}
-```
+> 💡 提示：请将 `1.0.0` 替换为最新的版本号。
 
 ## 🛠️ 构建
 
