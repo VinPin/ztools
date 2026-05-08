@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         minSdk = 21
-        consumerProguardFiles("consumer-rules.pro")
+        consumerProguardFiles += listOf(file("consumer-rules.pro"))
     }
 
     buildTypes {
