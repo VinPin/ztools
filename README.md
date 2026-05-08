@@ -68,6 +68,15 @@ dependencies {
 
 > 💡 提示：请将 `1.0.0` 替换为最新的版本号。
 
+### 初始化
+
+在 `Application` 的 `onCreate` 方法中初始化：
+
+```kotlin
+// 初始化全局工具类
+Util.init(application)
+``` 
+
 ## 🛠️ 构建
 
 ztools 使用现代 Gradle 构建系统，支持 Kotlin DSL 和版本目录（Version Catalogs）。
