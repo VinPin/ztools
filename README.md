@@ -86,26 +86,6 @@ ztools 使用现代 Gradle 构建系统，支持 Kotlin DSL 和版本目录（Ve
 - **Kotlin 版本**: 1.6.21
 - **构建工具**: AGP 7.4.2
 
-## 📜 许可证
-
-ztools 在 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 下发布。
-
-```
-Copyright 2026 vinpin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！在贡献之前，请阅读我们的 [贡献指南](CONTRIBUTING.md)。
