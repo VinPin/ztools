@@ -62,7 +62,7 @@ AndroidX 和 Kotlin 标准库）、无反射、无运行时注解处理器的特
 
 ```kotlin
 dependencies {
-    implementation("com.github.VinPin:1.0.0")
+    implementation("com.github.VinPin:ztools:1.0.0")
 }
 ```
 
