@@ -1,6 +1,6 @@
 # ztools
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.vinpin/ztools)](https://search.maven.org/search?q=g:com.vinpin%20AND%20a:ztools)
+[![](https://jitpack.io/v/VinPin/ztools.svg)](https://jitpack.io/#VinPin/ztools)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://developer.android.com/about/dashboards/platform-versions)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.6.21-blue.svg)](https://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
