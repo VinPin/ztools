@@ -10,7 +10,7 @@ material = "1.6.1"
 # kotlinx-coroutines-android:1.6.4（2022-6-13发布），不使用高版本是因1.7.0+依赖kotlin-stdlib-jdk8:1.8.20。
 coroutines = "1.6.4"
 # gson
-gson = "2.14.0"
+gson = "2.10.1"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
